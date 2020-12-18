@@ -1,24 +1,24 @@
 version: '3.1'
-services:
-  mars:
+services:  
+  venus:
     image: space-scanner-alien:latest
     restart: always
     ports:
       - 9090:9090
     environment:
       SERVER_PORT: 9090
-      APP_PLANET: mars
+      APP_PLANET: venus
       SPRING_PROFILES_ACTIVE: test
       SPRING_DATA_MONGODB_HOST: mongo
-    
-  venus:
+
+  mars:
     image: space-scanner-alien:latest
     restart: always
     ports:
       - 9091:9091
     environment:
       SERVER_PORT: 9091
-      APP_PLANET: venus
+      APP_PLANET: mars
       SPRING_PROFILES_ACTIVE: test
       SPRING_DATA_MONGODB_HOST: mongo
     
@@ -29,8 +29,8 @@ services:
       - 8080:8080
     environment:
       SERVER_PORT: 8080
-      APP_SERVICE_MARS: "http://mars:9090"
-      APP_SERVICE_VENUS: "http://venus:9091"
+      APP_SERVICE_VENUS: "http://venus:9090"
+      APP_SERVICE_MARS: "http://mars:9091"
 
   mongo:
     image: mongo
