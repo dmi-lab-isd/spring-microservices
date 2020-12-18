@@ -2,8 +2,6 @@ package com.space.scanner.alien.service;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,17 +42,16 @@ public class AlienService {
 		return alienRepository.countByPlanet(planet.getName());
 	}
 
-	public Alien createAlien(@Valid Alien newAlien) {
+	public Alien createAlien(Alien newAlien) {
 		newAlien.setPlanet(planet.getName());
 		return alienRepository.save(newAlien);
-		
 	}
 
 	public Alien getAlien(String id) {
 		return alienRepository.findByPlanetAndIdQuery(planet.getName(), id);
 	}
 
-	public Alien updateAlien(String id, @Valid Alien newAlien) {
+	public Alien updateAlien(String id, Alien newAlien) {
 		return alienRepository.findByPlanetAndId(planet.getName(), id)
 				.map(alien -> {
 					alien.setName(newAlien.getName());
