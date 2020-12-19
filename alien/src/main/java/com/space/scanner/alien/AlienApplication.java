@@ -9,28 +9,48 @@ import com.space.scanner.alien.bean.Mars;
 import com.space.scanner.alien.bean.Planet;
 import com.space.scanner.alien.bean.Venus;
 
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
+@EnableSwagger2
 public class AlienApplication {
 
 	@Value("${app.planet}")
 	private String planet;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(AlienApplication.class, args);
 	}
-	
+
 	@Bean
 	public Planet planet() {
 		System.out.println("Landing planet: " + planet);
-		
-		switch (planet) {	
-			case "mars": 	return new Mars(); 
-			case "venus": 	return new Venus(); 
-			
-			default:		return new Mars(); 
+
+		switch (planet) {
+			case "mars":
+				return new Mars();
+			case "venus":
+				return new Venus();
+			default:
+				return new Mars();
 		}
 	}
 
-}
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2)
+			.select()
+			.apis(RequestHandlerSelectors.basePackage("com.space.scanner.alien"))
+			.build()
+			.apiInfo(new ApiInfoBuilder()
+				.version("1.0")
+				.title(planet().getGreetings() + " API")
+				.description("Documentation of " + planet().getGreetings() + " API v1.0")
+				.build());
+	}
 
+}

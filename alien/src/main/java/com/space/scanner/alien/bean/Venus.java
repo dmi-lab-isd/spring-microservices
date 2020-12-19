@@ -4,7 +4,7 @@ public class Venus implements Planet {
 
 	@Override
 	public String getGreetings() {
-		return "Yellow Planet!";
+		return "Yellow Planet";
 	}
 	
 	@Override

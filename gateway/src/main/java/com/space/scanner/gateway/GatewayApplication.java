@@ -4,7 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+/**
+ * Check:
+ * http://localhost:8080/swagger-ui.html (UI docs from mars and venus)
+ */
 @EnableZuulProxy
+@EnableSwagger2
 @SpringBootApplication
 public class GatewayApplication {
 
