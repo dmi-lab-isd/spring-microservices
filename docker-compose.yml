@@ -8,7 +8,7 @@ services:
     environment:
       SERVER_PORT: 9090
       APP_PLANET: venus
-      SPRING_PROFILES_ACTIVE: test
+      SPRING_PROFILES_ACTIVE: prod
       SPRING_DATA_MONGODB_HOST: mongo
 
   mars:
@@ -19,7 +19,7 @@ services:
     environment:
       SERVER_PORT: 9091
       APP_PLANET: mars
-      SPRING_PROFILES_ACTIVE: test
+      SPRING_PROFILES_ACTIVE: prod
       SPRING_DATA_MONGODB_HOST: mongo
     
   gateway:
