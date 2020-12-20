@@ -3,8 +3,8 @@ services:
   venus:
     image: space-scanner-alien:latest
     restart: always
-    ports:
-      - 9090:9090
+    #ports:
+    #  - 9090:9090
     environment:
       SERVER_PORT: 9090
       APP_PLANET: venus
@@ -14,8 +14,8 @@ services:
   mars:
     image: space-scanner-alien:latest
     restart: always
-    ports:
-      - 9091:9091
+    #ports:
+    #  - 9091:9091
     environment:
       SERVER_PORT: 9091
       APP_PLANET: mars
@@ -35,8 +35,8 @@ services:
   mongo:
     image: mongo
     restart: always
-    ports:
-      - 2701:2701
+    #ports:
+    #  - 2701:2701
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
