@@ -2,11 +2,11 @@
 
 - Build di entrambi i progetti (alien, gateway): `./build-all.sh`
 - Esecuzione di tutti i microservizi: `docker-compose up`
-- Dashboard di mongo-express: [localhost:8081]()
-- Space Scanner: [localhost:8080]()
-	- Venus: [localhost:8080/scanner/venus]()
-	- Mars: [localhost:8080/scanner/mars]()
-	- Documentazione API (Swagger 2): [localhost:8080/swagger-ui.html]()
+- Dashboard di mongo-express: http://localhost:808
+- Space Scanner: http://localhost:8080
+	- Venus: http://localhost:8080/scanner/venus
+	- Mars: http://localhost:8080/scanner/mars
+	- Documentazione API (Swagger 2): http://localhost:8080/swagger-ui.html
 
 ## Architettura
 ![Architecture](doc/architecture.png)
