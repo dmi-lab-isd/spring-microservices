@@ -20,12 +20,11 @@ public class SwaggerConfig {
 	@Bean
 	public SwaggerResourcesProvider swaggerResourcesProvider(RouteLocator routeLocator) {
 		return () -> {
-			List<SwaggerResource> resources = new ArrayList<>();
-            routeLocator.getRoutes().stream()
-					.forEach(route -> resources.add(
-                        swaggerResource(route.getId(), route.getFullPath().replace("**", "v2/api-docs"),"2.0")));
-			return resources;
-		};
+            List<SwaggerResource> resources = new ArrayList<>();
+            routeLocator.getRoutes().forEach(route -> resources.add(
+                swaggerResource(route.getId(), route.getFullPath().replace("**", "v2/api-docs"),"2.0")));
+            return resources;
+        };
 	}
 
 	private SwaggerResource swaggerResource(String name, String location, String version) {
