@@ -14,24 +14,24 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
 @Configuration
 public class SwaggerConfig {
-
+    
     @Autowired
     @Primary
-	@Bean
-	public SwaggerResourcesProvider swaggerResourcesProvider(RouteLocator routeLocator) {
-		return () -> {
+    @Bean
+    public SwaggerResourcesProvider swaggerResourcesProvider(RouteLocator routeLocator) {
+        return () -> {
             List<SwaggerResource> resources = new ArrayList<>();
             routeLocator.getRoutes().forEach(route -> resources.add(
                 swaggerResource(route.getId(), route.getFullPath().replace("**", "v2/api-docs"),"2.0")));
             return resources;
         };
-	}
-
-	private SwaggerResource swaggerResource(String name, String location, String version) {
-		SwaggerResource swaggerResource = new SwaggerResource();
-		swaggerResource.setName(name);
-		swaggerResource.setLocation(location);
-		swaggerResource.setSwaggerVersion(version);
-		return swaggerResource;
-	}
+    }
+    
+    private SwaggerResource swaggerResource(String name, String location, String version) {
+        SwaggerResource swaggerResource = new SwaggerResource();
+        swaggerResource.setName(name);
+        swaggerResource.setLocation(location);
+        swaggerResource.setSwaggerVersion(version);
+        return swaggerResource;
+    }
 }
